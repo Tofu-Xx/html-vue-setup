@@ -1,0 +1,27 @@
+{
+  "name": "html-vue-setup",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tofu-Xx/html-vue-setup.git"
+  },
+  "description": "You can use sugar in html in a format similar to vue3 setup syntactic sugar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite --open",
+    "build": "vite build"
+  },
+  "keywords": [
+    "html",
+    "cdn",
+    "setup-script",
+    "vue3",
+    "setup"
+  ],
+  "author": "tofu_xx",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
