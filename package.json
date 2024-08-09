@@ -12,6 +12,10 @@
     "dev": "vite --open",
     "build": "vite build"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "keywords": [
     "html",
     "cdn",
