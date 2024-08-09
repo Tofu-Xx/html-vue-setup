@@ -1,0 +1,27 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>无html-vue-setup的set函数写法</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<main>
+  <p>{{ dbl}}</p>
+  <button @click="count++">{{ count }}</button>
+</main>
+
+<script>
+  const { ref, computed, watchEffect, createApp } = Vue;
+  createApp({
+    setup: () => {
+      const count = ref(0);
+      const dbl = computed(() => count.value * 2);
+      watchEffect(() => {
+        count.value > 10 && alert(`Are you bored?`);
+      });
+      return {
+        count,
+        dbl
+      };
+    }
+  }).mount('main');
+</script>

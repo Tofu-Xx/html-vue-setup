@@ -1,0 +1,20 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>html-vue-setup的set语法糖写法</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/html-vue-setup/dist/main.umd.js"></script>
+</head>
+
+
+<script setup>
+  const count = ref(0);
+  const dbl = computed(() => count.value * 2);
+  watchEffect(() => {
+    count.value > 10 && alert(`Are you bored?`);
+  })
+</script>
+
+<main>
+  <p>{{ dbl}}</p>
+  <button @click="count++">{{ count }}</button>
+</main>
