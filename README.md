@@ -36,7 +36,7 @@ html-vue-setup 是一个用于在 HTML 中使用 Vue 3 的工具。它允许你�
 
 ```html
 <script>
-  const { createApp/* 需要用到的vue属性 */ } = Vue;
+  const { createApp } = Vue;
   createApp({
     setup: () => {
       /* 您的代码逻辑 */
