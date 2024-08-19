@@ -21,10 +21,17 @@ if (Number(Vue.version.split('.')[0]) < 3) {
   const lifecycles = Object.keys(Vue).filter(k=>/^on[A-Z][a-zA-Z]*/.test(k))
   lifecycles.forEach(k=>window[k] = gotoSetup(k));
   document.addEventListener('DOMContentLoaded', () => {
-    let c = [], g, t;
+    let globalVars = [], g;
     // @ts-ignore
-    const e = document.querySelector('script[setup]'), a = e?.innerText || '', m = e?.getAttribute('setup') || (document.querySelector('#app') ? '#app' : 'body>*'), b = /(?:let|const|function)\s+\[?\{?\s*([a-zA-Z_$][\w$,\s]*)\b/g;
-    while ((g = b.exec(a)) !== null) t = g[1], c = [...c, ...(t.includes(',') ? t.split(',').map(i => i.trim()) : [t])];
+    const scriptElement = document.querySelector('script[setup]'), setupContent = scriptElement?.innerText || '';
+    const mountPointSelector = scriptElement?.getAttribute('setup') || (document.querySelector('#app') ? '#app' : 'body>*');
+    const globalVarRegex = /(?:let|const|function)\s+\[?\{?\s*([a-zA-Z_$][\w$,\s]*)\b/g;
+    
+    while ((g = globalVarRegex.exec(setupContent)) !== null) {
+      // @ts-ignore
+      const t = g[1];
+      globalVars = [...globalVars, ...(t.includes(',') ? t.split(',').map(i => i.trim()) : [t])];
+    }
     // @ts-ignore
     createApp({
       // @ts-ignore
@@ -40,14 +47,13 @@ if (Number(Vue.version.split('.')[0]) < 3) {
           eval(`${vueFnName} = Vue.${vueFnName}`);
         });
         // @ts-ignore
-        return Object.fromEntries(c.map((a) => {
+        return Object.fromEntries(globalVars.map((a) => {
           try {
             return [a, eval(a)];
-
           } catch { }
         }).filter(Boolean));
       }
-    }).mount(m);
+    }).mount(mountPointSelector);
   });
 
 })();
