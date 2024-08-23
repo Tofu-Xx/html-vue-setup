@@ -19,7 +19,8 @@ if (Number(Vue.version.split('.')[0]) < 3) {
   };
   // @ts-ignore
   const lifecycles = Object.keys(Vue).filter(k=>/^on[A-Z][a-zA-Z]*/.test(k))
-  lifecycles.forEach(k=>window[k] = gotoSetup(k));
+  lifecycles.forEach(k => window[k] = gotoSetup(k));
+  // @ts-ignore
   document.addEventListener('DOMContentLoaded', () => {
     let globalVars = [], g;
     // @ts-ignore
