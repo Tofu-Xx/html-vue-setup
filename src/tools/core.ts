@@ -7,13 +7,16 @@ export function getExposedName(scriptContent: string) {
 }
 /*  */
 
-export function transport(funs: string[], pseudoCallThis: object = window) {
+export function transport(
+  funNameList: string[],
+  pseudoCallThis: object = window,
+) {
   const funPocket: { [key: string]: any[][] } = {};
   function _transport(fnStr: string) {
     funPocket[fnStr] = [];
     eval(`${fnStr} = (...args) => FUN_CONVEYOR[fnStr].push(args)`);
     return eval(fnStr);
   }
-  funs.forEach((k) => pseudoCallThis[k] = _transport(k));
+  funNameList.forEach((k) => pseudoCallThis[k] = _transport(k));
   return funPocket;
 }
