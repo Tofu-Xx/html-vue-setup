@@ -11,7 +11,8 @@
   const count = ref(0);
   const dbl = computed(() => count.value * 2);
   watchEffect(() => {
-    count.value > 10 && alert(`Are you bored?`);
+    const msg = `Are you bored?`;
+    count.value > 10 && alert(msg);
   });
   onMounted(() => {
     console.log(btn.value);
