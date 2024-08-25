@@ -1,6 +1,6 @@
 {
   "name": "html-vue-setup",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tofu-Xx/html-vue-setup.git"
@@ -26,6 +26,7 @@
   "author": "tofu_xx",
   "license": "MIT",
   "devDependencies": {
+    "bumpp": "^9.5.2",
     "vite": "^5.4.0"
   },
   "publishConfig": {
