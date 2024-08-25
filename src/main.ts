@@ -1,14 +1,6 @@
 import { getExposedName, transport } from "./tools";
 /*  */
 const SETUP_VUE = (window as any).Vue;
-const LIFECYCLES = [
-  "onMounted",
-  "onUpdated",
-  "onUnmounted",
-  "onBeforeMount",
-  "onBeforeUpdate",
-  "onBeforeUnmount",
-];
 /*  */
 if (!SETUP_VUE) {
   console.error(
@@ -22,7 +14,14 @@ if (Number(SETUP_VUE.version.split(".")[0]) < 3) {
 /*  */
 Object.entries(SETUP_VUE).forEach(([k, v]) => window[k] = v);
 /*  */
-const funPocket = transport([...LIFECYCLES /* more */]);
+const funPocket = transport([
+  "onMounted",
+  "onUpdated",
+  "onUnmounted",
+  "onBeforeMount",
+  "onBeforeUpdate",
+  "onBeforeUnmount",
+]);
 /*  */
 /*  */
 document.addEventListener("DOMContentLoaded", () => {
