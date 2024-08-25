@@ -5,18 +5,22 @@
 </head>
 
 <main>
-  <p>{{ dbl}}</p>
-  <button @click="count++">{{ count }}</button>
+  <p>{{ dbl }}</p>
+  <button @click="count++" ref="btn">{{ count }}</button>
 </main>
 
 <script>
   const { ref, computed, watchEffect, createApp } = Vue;
   createApp({
     setup: () => {
+      const btn = ref(null);
       const count = ref(0);
       const dbl = computed(() => count.value * 2);
       watchEffect(() => {
         count.value > 10 && alert(`Are you bored?`);
+      });
+      onMounted(() => {
+        btn.value.focus();
       });
       return {
         count,
