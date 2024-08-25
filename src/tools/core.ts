@@ -14,7 +14,7 @@ export function transport(
   const funPocket: { [key: string]: any[][] } = {};
   function _transport(fnStr: string) {
     funPocket[fnStr] = [];
-    eval(`${fnStr} = (...args) => FUN_CONVEYOR[fnStr].push(args)`);
+    eval(`${fnStr} = (...args) => funPocket[fnStr].push(args)`);
     return eval(fnStr);
   }
   funNameList.forEach((k) => pseudoCallThis[k] = _transport(k));
