@@ -9,8 +9,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite --open",
-    "build": "vite build"
+    "build": "vite build",
+    "release": "bumpp package.json --commit --tag --push --publish"
   },
   "files": [
     "dist",

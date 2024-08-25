@@ -12,7 +12,7 @@ const LIFECYCLES = [
 /*  */
 if (!TOPO_VUE) {
   console.error(
-    "Vue is not found, please import Vue first!\nVue can be imported from https://unpkg.com/vue@3/dist/vue.global.js",
+    'Vue is not found, please import Vue first!\nPlease insert ```<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>``` in front',
   );
 }
 if (Number(TOPO_VUE.version.split(".")[0]) < 3) {
