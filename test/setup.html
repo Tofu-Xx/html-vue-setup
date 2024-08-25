@@ -2,7 +2,8 @@
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <title>有html-vue-setup的set语法糖写法</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-  <script src="https://unpkg.com/html-vue-setup/dist/main.umd.js"></script>
+  <!-- <script src="https://unpkg.com/html-vue-setup/dist/main.umd.js"></script> -->
+  <script src="../dist/main.umd.js"></script>
 </head>
 
 <script setup>
@@ -13,7 +14,7 @@
     count.value > 10 && alert(`Are you bored?`);
   });
   onMounted(() => {
-    console.log(btn.value)
+    console.log(btn.value);
     btn.value.focus();
   })
 </script>
