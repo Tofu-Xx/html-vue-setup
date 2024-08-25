@@ -1,4 +1,4 @@
-import { FUN_CONVEYOR, getExposedName, transport } from "./tools";
+import { getExposedName, transport } from "./tools";
 /*  */
 const SETUP_VUE = (window as any).Vue;
 const LIFECYCLES = [
@@ -22,7 +22,7 @@ if (Number(SETUP_VUE.version.split(".")[0]) < 3) {
 /*  */
 Object.entries(SETUP_VUE).forEach(([k, v]) => window[k] = v);
 /*  */
-[...LIFECYCLES /* more */].forEach((k) => window[k] = transport(k));
+const funPocket = transport([...LIFECYCLES /* more */]);
 /*  */
 /*  */
 document.addEventListener("DOMContentLoaded", () => {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   SETUP_VUE.createApp({
     setup: () => {
-      Object.entries(FUN_CONVEYOR).forEach(([vueFnName, argsArr]) => {
+      Object.entries(funPocket).forEach(([vueFnName, argsArr]) => {
         argsArr.forEach((args) => {
           SETUP_VUE[vueFnName](...args);
         });
