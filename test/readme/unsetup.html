@@ -1,0 +1,29 @@
+<head>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button @click="count++">{{count}}</button>
+  </div>
+  <script>
+    const { createApp, ref } = Vue;
+
+    const App = {
+      setup() {
+        const count = ref(0);
+        return {
+          count
+        };
+      }
+    };
+
+    createApp(App).mount('#app');
+  </script>
+</body>

@@ -1,0 +1,20 @@
+<head>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/html-vue-setup/dist/main.umd.js"></script>
+</head>
+
+<script setup>
+  const count = ref(0);
+</script>
+
+<main>
+  <button @click="count++">{{count}}</button>
+</main>
+
+<style>
+  button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+  }
+</style>

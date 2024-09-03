@@ -1,6 +1,7 @@
 {
   "name": "html-vue-setup",
   "version": "0.1.3",
+  "access": "public",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tofu-Xx/html-vue-setup.git"
@@ -10,7 +11,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
-    "release": "bumpp package.json --commit --tag --push --publish"
+    "release": "bumpp"
   },
   "files": [
     "dist",
@@ -23,7 +24,7 @@
     "vue3",
     "setup"
   ],
-  "author": "tofu_xx",
+  "author": "tofu-xx <tofu-xx@foxmail.com>",
   "license": "MIT",
   "devDependencies": {
     "bumpp": "^9.5.2",
