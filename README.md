@@ -1,5 +1,6 @@
 <h1 align="center">html-vue-setup</h1>
-<p align="center">建议使用<a href="https://github.com/tofu-xx/setupin">setupin</a>代替本项目</p>
+
+<p align="center">❗本项目停止维护，建议使用<a href="https://github.com/tofu-xx/setupin">setupin</a>代替本项目❗</p>
 
 ## 什么是html-vue-setup
 
