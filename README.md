@@ -31,10 +31,9 @@ html-vue-setup 是一个用于在 HTML 中使用 Vue 3 的工具。它允许你�
 
 ## 基本特性
 
-### 1.自动挂载
+### 1.快速入门
 
-1. 不使用 html-vue-setup 时，我们需要手动调用 createApp
-   函数，并传入一个对象，然后在对象中定义 setup 函数,并返回需要暴露的数据
+1. 不使用 html-vue-setup 时
 
 ```html
 <script>
@@ -75,10 +74,9 @@ html-vue-setup 是一个用于在 HTML 中使用 Vue 3 的工具。它允许你�
 </main>
 ```
 
-浏览器会将`<main>`标签挂载到`<body>`下
-然后html-vue-setup会把vue实例挂载到`<main>`上
+浏览器会自动将`<main>`标签解析到`<body>`下
 
-> _这种写法是为了更接近vue的SFC格式，也是本人的习惯写法_
+> 这种写法是为了更接近vue的SFC格式，也是本人的习惯写法
 
 2. 自定义挂载
 
@@ -88,11 +86,10 @@ html-vue-setup 是一个用于在 HTML 中使用 Vue 3 的工具。它允许你�
 </script>
 ```
 
-**setup属性值最终会传参到mount函数中**
-
 #### 暴露数据
 
-setup函数中需要手动return需要暴露的数据，这个十分影响开发体验，所以html-vue-setup会自动将setup函数中定义的变量，自动return出去，不需要手动return
+setup函数中需要手动return需要暴露的数据，这个十分影响开发体验。
+而html-vue-setup会自动return setup函数中定义的变量
 
 > _暂不支持命名解构_
 
@@ -123,7 +120,7 @@ const { ref, createApp } = Vue;
 </script>
 ```
 
-2. 使用 html-vue-setup 后，我们可以直接使用，不需要手动解构，或者都带上 Vue 前缀
+2. 使用 html-vue-setup 后，我们可以直接使用
 
 ```html
 <script setup>
@@ -133,7 +130,7 @@ const { ref, createApp } = Vue;
 
 ## 书写顺序
 
-vue3三更建议 `<script setup>`写在`<template>`之前
+vue3三更建议 `<script setup>`在`<template>`之前书写
 所以html-vue-setup也支持了这种写法
 
 ```html
